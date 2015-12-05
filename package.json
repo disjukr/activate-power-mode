@@ -1,0 +1,14 @@
+{
+  "name": "activate-power-mode",
+  "version": "1.0.0",
+  "description": "Activate POWER MODE anywhere",
+  "main": "dist/activate-power-mode.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "JongChan Choi",
+  "license": "MIT",
+  "devDependencies": {
+    "webpack": "^1.12.9"
+  }
+}
