@@ -4,6 +4,8 @@
 
 [demo](http://0xABCDEF.com/activate-power-mode/)
 
+used [textarea-caret-position library](https://github.com/component/textarea-caret-position).
+
 
 ## how to use
 
