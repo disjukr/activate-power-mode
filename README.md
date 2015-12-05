@@ -2,6 +2,8 @@
 
 [power mode](https://github.com/codeinthedark/editor/pull/1) script for any website
 
+[demo](./index.html)
+
 
 ## how to use
 
