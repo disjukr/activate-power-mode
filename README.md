@@ -2,7 +2,7 @@
 
 [power mode](https://github.com/codeinthedark/editor/pull/1) script for any website
 
-[demo](./index.html)
+[demo](http://0xABCDEF.com/activate-power-mode/)
 
 
 ## how to use
