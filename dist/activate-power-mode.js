@@ -76,10 +76,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	        (el.tagName === 'INPUT' && el.getAttribute('type') === 'text')) {
 	        var offset = __webpack_require__(1)(el, el.selectionStart);
 	        bcr = el.getBoundingClientRect();
+	        var u = getRandom(0, 360);
 	        return {
 	            x: offset.left + bcr.left,
 	            y: offset.top + bcr.top,
-	            color: window.getComputedStyle(el).color
+	            color: "hsla(" + getRandom(u-10, u+10) + ", 100%, " + getRandom(50, 80) + "%, " + 1 + ")"
 	        };
 	    }
 	    var selection = window.getSelection();
