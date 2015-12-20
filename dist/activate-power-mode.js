@@ -69,6 +69,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	var particles = [];
 	var particlePointer = 0;
 
+	function getRandom(min, max) {
+	    return Math.random() * (max - min) + min;
+	}
+
+	function getColor(el) {
+	    if (POWERMODE.colorful) {
+	        var u = getRandom(0, 360);
+	        return 'hsla(' + getRandom(u - 10, u + 10) + ', 100%, ' + getRandom(50, 80) + '%, ' + 1 + ')';
+	    } else {
+	        return window.getComputedStyle(el).color;
+	    }
+	}
+
 	function getCaret() {
 	    var el = document.activeElement;
 	    var bcr;
@@ -76,11 +89,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	        (el.tagName === 'INPUT' && el.getAttribute('type') === 'text')) {
 	        var offset = __webpack_require__(1)(el, el.selectionStart);
 	        bcr = el.getBoundingClientRect();
-	        var u = getRandom(0, 360);
 	        return {
 	            x: offset.left + bcr.left,
 	            y: offset.top + bcr.top,
-	            color: "hsla(" + getRandom(u-10, u+10) + ", 100%, " + getRandom(50, 80) + "%, " + 1 + ")"
+	            color: getColor(el)
 	        };
 	    }
 	    var selection = window.getSelection();
@@ -94,7 +106,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        return {
 	            x: bcr.left,
 	            y: bcr.top,
-	            color: window.getComputedStyle(startNode).color
+	            color: getColor(startNode)
 	        };
 	    }
 	    return { x: 0, y: 0, color: 'transparent' };
@@ -113,7 +125,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    };
 	}
 
-	module.exports = function action() {
+	function POWERMODE() {
 	    { // spawn particles
 	        var caret = getCaret();
 	        var numParticles = 5 + Math.round(Math.random() * 10);
@@ -134,6 +146,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }, 75);
 	    }
 	};
+	POWERMODE.colorful = false;
 
 	function loop() {
 	    requestAnimationFrame(loop);
@@ -155,6 +168,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	}
 	requestAnimationFrame(loop);
+
+	module.exports = POWERMODE;
 
 
 /***/ },

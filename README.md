@@ -12,6 +12,12 @@ used [textarea-caret-position library](https://github.com/component/textarea-car
 ```html
 <script src="activate-power-mode.js"></script>
 <script>
+POWERMODE.colorful = true; // make power mode colorful
 document.body.addEventListener('input', POWERMODE);
 </script>
 ```
+
+
+## showcase
+
+- http://blog.wangjunfeng.com/
