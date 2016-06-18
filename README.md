@@ -13,6 +13,7 @@ used [textarea-caret-position library](https://github.com/component/textarea-car
 <script src="activate-power-mode.js"></script>
 <script>
 POWERMODE.colorful = true; // make power mode colorful
+POWERMODE.shake = false; // turn off shake
 document.body.addEventListener('input', POWERMODE);
 </script>
 ```

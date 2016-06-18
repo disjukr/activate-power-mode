@@ -13,6 +13,8 @@ var context = canvas.getContext('2d');
 var particles = [];
 var particlePointer = 0;
 
+POWERMODE.shake = true;
+
 function getRandom(min, max) {
     return Math.random() * (max - min) + min;
 }
@@ -79,15 +81,17 @@ function POWERMODE() {
         }
     }
     { // shake screen
-        var intensity = 1 + 2 * Math.random();
-        var x = intensity * (Math.random() > 0.5 ? -1 : 1);
-        var y = intensity * (Math.random() > 0.5 ? -1 : 1);
-        document.body.style.marginLeft = x + 'px';
-        document.body.style.marginTop = y + 'px';
-        setTimeout(function () {
-            document.body.style.marginLeft = '';
-            document.body.style.marginTop = '';
-        }, 75);
+        if (POWERMODE.shake) {
+            var intensity = 1 + 2 * Math.random();
+            var x = intensity * (Math.random() > 0.5 ? -1 : 1);
+            var y = intensity * (Math.random() > 0.5 ? -1 : 1);
+            document.body.style.marginLeft = x + 'px';
+            document.body.style.marginTop = y + 'px';
+            setTimeout(function() {
+                document.body.style.marginLeft = '';
+                document.body.style.marginTop = '';
+            }, 75);
+        }
     }
 };
 POWERMODE.colorful = false;
