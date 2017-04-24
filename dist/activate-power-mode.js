@@ -90,7 +90,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    var bcr;
 	    if (el.tagName === 'TEXTAREA' ||
 	        (el.tagName === 'INPUT' && el.getAttribute('type') === 'text')) {
-	        var offset = __webpack_require__(1)(el, el.selectionStart);
+	        var offset = __webpack_require__(1)(el, el.selectionEnd);
 	        bcr = el.getBoundingClientRect();
 	        return {
 	            x: offset.left + bcr.left,
