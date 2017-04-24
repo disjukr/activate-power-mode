@@ -52,7 +52,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -68,6 +68,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	var context = canvas.getContext('2d');
 	var particles = [];
 	var particlePointer = 0;
+	var rendering = false;
 
 	POWERMODE.shake = true;
 
@@ -149,12 +150,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	            }, 75);
 	        }
 	    }
+	    if(!rendering){
+	        requestAnimationFrame(loop);
+	    }
 	};
 	POWERMODE.colorful = false;
 
 	function loop() {
-	    requestAnimationFrame(loop);
+	    rendering = true;
 	    context.clearRect(0, 0, canvas.width, canvas.height);
+	    var rendered = false;
 	    for (var i = 0; i < particles.length; ++i) {
 	        var particle = particles[i];
 	        if (particle.alpha <= 0.1) continue;
@@ -169,16 +174,21 @@ return /******/ (function(modules) { // webpackBootstrap
 	            Math.round(particle.y - 1.5),
 	            3, 3
 	        );
+	        rendered = true;
+	    }
+	    if(rendered){
+	        requestAnimationFrame(loop);
+	    }else{
+	        rendering = false;
 	    }
 	}
-	requestAnimationFrame(loop);
 
 	module.exports = POWERMODE;
 
 
-/***/ },
+/***/ }),
 /* 1 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/* jshint browser: true */
 
@@ -307,7 +317,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	}());
 
-/***/ }
+/***/ })
 /******/ ])
 });
 ;
