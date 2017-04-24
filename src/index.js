@@ -12,6 +12,7 @@ document.body.appendChild(canvas);
 var context = canvas.getContext('2d');
 var particles = [];
 var particlePointer = 0;
+var rendering = false;
 
 POWERMODE.shake = true;
 
@@ -93,12 +94,16 @@ function POWERMODE() {
             }, 75);
         }
     }
+    if(!rendering){
+        requestAnimationFrame(loop);
+    }
 };
 POWERMODE.colorful = false;
 
 function loop() {
-    requestAnimationFrame(loop);
+    rendering = true;
     context.clearRect(0, 0, canvas.width, canvas.height);
+    var rendered = false;
     for (var i = 0; i < particles.length; ++i) {
         var particle = particles[i];
         if (particle.alpha <= 0.1) continue;
@@ -113,8 +118,13 @@ function loop() {
             Math.round(particle.y - 1.5),
             3, 3
         );
+        rendered = true;
+    }
+    if(rendered){
+        requestAnimationFrame(loop);
+    }else{
+        rendering = false;
     }
 }
-requestAnimationFrame(loop);
 
 module.exports = POWERMODE;
