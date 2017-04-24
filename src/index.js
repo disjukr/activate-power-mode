@@ -33,7 +33,7 @@ function getCaret() {
     var bcr;
     if (el.tagName === 'TEXTAREA' ||
         (el.tagName === 'INPUT' && el.getAttribute('type') === 'text')) {
-        var offset = require('textarea-caret-position')(el, el.selectionStart);
+        var offset = require('textarea-caret-position')(el, el.selectionEnd);
         bcr = el.getBoundingClientRect();
         return {
             x: offset.left + bcr.left,

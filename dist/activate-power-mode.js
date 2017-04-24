@@ -52,7 +52,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -89,7 +89,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    var bcr;
 	    if (el.tagName === 'TEXTAREA' ||
 	        (el.tagName === 'INPUT' && el.getAttribute('type') === 'text')) {
-	        var offset = __webpack_require__(1)(el, el.selectionStart);
+	        var offset = __webpack_require__(1)(el, el.selectionEnd);
 	        bcr = el.getBoundingClientRect();
 	        return {
 	            x: offset.left + bcr.left,
@@ -176,9 +176,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = POWERMODE;
 
 
-/***/ },
+/***/ }),
 /* 1 */
-/***/ function(module, exports) {
+/***/ (function(module, exports) {
 
 	/* jshint browser: true */
 
@@ -307,7 +307,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	}());
 
-/***/ }
+/***/ })
 /******/ ])
 });
 ;
