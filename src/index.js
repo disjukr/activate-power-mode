@@ -104,6 +104,7 @@ function loop() {
     rendering = true;
     context.clearRect(0, 0, canvas.width, canvas.height);
     var rendered = false;
+    var rect = canvas.getBoundingClientRect();
     for (var i = 0; i < particles.length; ++i) {
         var particle = particles[i];
         if (particle.alpha <= 0.1) continue;
@@ -114,8 +115,8 @@ function loop() {
         context.globalAlpha = particle.alpha;
         context.fillStyle = particle.color;
         context.fillRect(
-            Math.round(particle.x - 1.5),
-            Math.round(particle.y - 1.5),
+            Math.round(particle.x - 1.5) - rect.left,
+            Math.round(particle.y - 1.5) - rect.top,
             3, 3
         );
         rendered = true;
